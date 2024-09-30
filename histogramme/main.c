@@ -25,11 +25,11 @@ int stockage() {
     FILE *file = fopen("/Users/leogallacio/Downloads/Pixmap.bin", "rb");
 
     // Créer tableau pour stocker les dimensions
-    short dimensions[3];
+    unsigned short dimensions[3];
     
     // Lire les 3 premières valeurs (dimensions)
     // 1.a) OK
-    size_t dim_read = fread(dimensions, sizeof(short), 3, file);
+    size_t dim_read = fread(dimensions, sizeof(unsigned short), 3, file);
     printf("Les dimensions sont : %hd, %hd, %hd\n\n", dimensions[0], dimensions[1], dimensions[2]);
     if (dim_read != 3) {
         printf("Erreur: Impossible de lire les dimensions.\n");
@@ -95,6 +95,8 @@ int stockage() {
             }
         }
     }
+    
+    // GERER LES CONDITIONS EX : GARDER LES 5 PLUS GRANDES TRACES 
     
     printf("\n");
     for (int m=0; m < nb_couleur; m++){
